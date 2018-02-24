@@ -12,7 +12,7 @@ import java.io.IOException;
 public class NaiveKeywordSearcher implements KeywordSearcher {
 
     @Override
-    public boolean wasKeywordFound(String url, String keyword) {
+    public boolean wasKeywordFound(final String url, final String keyword) {
         try {
             return Request.Get(url).execute().returnContent().asString().toLowerCase().contains(keyword);
         } catch (IOException e) {
