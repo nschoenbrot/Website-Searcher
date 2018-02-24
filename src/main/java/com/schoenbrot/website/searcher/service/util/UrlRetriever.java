@@ -15,7 +15,7 @@ public class UrlRetriever {
     public List<String> getUrls() {
         final List<String> urls = new ArrayList<>();
         try {
-            final Reader reader = new FileReader(getClass().getResource("/urls.csv").getPath());
+            final Reader reader = new FileReader(getClass().getResource("/urls.txt").getPath());
             final Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(reader);
             for (final CSVRecord record : records) {
                 urls.add(record.get("URL"));
