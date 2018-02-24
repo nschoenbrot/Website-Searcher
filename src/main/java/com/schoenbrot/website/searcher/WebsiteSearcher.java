@@ -8,12 +8,14 @@ import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 public class WebsiteSearcher {
     public static void main(String... args) {
+        System.out.println("Start Time " + LocalDateTime.now());
         if (args.length < 1) {
             System.out.println("Please specify a keyword.");
             return;
@@ -35,6 +37,7 @@ public class WebsiteSearcher {
         }
 
         System.out.println("Complete.\nResults output to results.txt");
+        System.out.println("Finished Time " + LocalDateTime.now());
     }
 
     private static List<String> readyMapToBePrinted(final String keyword, final Map<String, Boolean> map) {
