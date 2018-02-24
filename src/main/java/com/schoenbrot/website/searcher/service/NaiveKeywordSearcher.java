@@ -12,11 +12,12 @@ import java.io.IOException;
 public class NaiveKeywordSearcher implements KeywordSearcher {
 
     @Override
-    public boolean wasKeywordFound(String url, String keyword) {
+    public boolean wasKeywordFound(final String url, final String keyword) {
         try {
-            return Request.Get(url).execute().returnContent().asString().toLowerCase().contains(keyword);
+            System.out.println("Checking website " + url);
+            return Request.Get("https://" + url).execute().returnContent().asString().toLowerCase().contains(keyword);
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println(url + " generated an exception " + e.getMessage());
             return false;
         }
     }
