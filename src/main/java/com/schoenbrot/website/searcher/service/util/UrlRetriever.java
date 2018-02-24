@@ -21,7 +21,7 @@ public class UrlRetriever {
                 urls.add(record.get("URL"));
             }
         } catch (java.io.IOException e) {
-            e.printStackTrace();
+            System.out.println("Error retrieving urls " + e.getMessage());
         }
         return urls;
     }
